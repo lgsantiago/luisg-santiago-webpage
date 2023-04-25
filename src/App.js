@@ -16,7 +16,7 @@ function App() {
               Software Engineer | Developer Advocate
             </span>
           </h1>
-          <a href="http://localhost:3000/" className="btn btn-white">watch my videos</a>
+          <a href="http://localhost:3000/" className="btn btn-white btn-animated">watch my videos</a>
         </div>
 
       </header>
