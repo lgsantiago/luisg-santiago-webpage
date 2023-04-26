@@ -1,20 +1,24 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.7;
   color: #777;
-  padding: 30px;
+  padding: 3rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 .logo-box {
@@ -62,6 +66,7 @@ body {
   font-size: 23px;
   font-weight: 400;
   animation: moveInRight 1s ease-out;
+  margin-right: 20px;
   /* animation-name: moveInRight;
   animation-duration: 1s;
   animation-timing-function: ease-out; */
