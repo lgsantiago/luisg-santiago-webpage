@@ -9,6 +9,9 @@
         font-weight: 700;
         letter-spacing: 1.6rem;
         animation: moveInLeft 1s ease-out;
+        @media screen and (max-width: 768px) {
+            font-size: 3rem;
+        }
         /* animation-name: moveInLeft;
     animation-duration: 1s;
     animation-timing-function: ease-out; */
@@ -20,6 +23,9 @@
         font-weight: 400;
         animation: moveInRight 1s ease-out;
         margin-right: 2rem;
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
         /* animation-name: moveInRight;
     animation-duration: 1s;
     animation-timing-function: ease-out; */

@@ -18,6 +18,10 @@
     position: absolute;
     top: 5rem;
     left: 5rem;
+    /* Styles for screens with a maximum width of 768 pixels (tablets and smaller) */
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
 }
 
 .logo {
