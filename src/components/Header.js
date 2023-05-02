@@ -1,6 +1,6 @@
 import logo from "../img/logo.png";
 
-const Header = () => 
+const Header = () => (
   <div>
     <header className="header">
       <div className="logo-box">
@@ -14,11 +14,15 @@ const Header = () =>
             Software Engineer | Developer Advocate
           </span>
         </h1>
-        <a href="http://localhost:3000/" className="btn btn-white btn-animated">
+        <a
+          href="https://www.youtube.com/@lgsantiago"
+          className="btn btn-white btn-animated"
+        >
           watch my videos
         </a>
       </div>
     </header>
   </div>
+);
 
 export default Header;
