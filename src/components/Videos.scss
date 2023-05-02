@@ -1,0 +1,25 @@
+@import "../sass/abstracts/variables";
+
+.section-videos {
+    background-color: $color--light-gray;
+    margin-top: 8rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    @media screen and (max-width: 1124px) {
+        display: none;
+    }
+}
+
+.heading-channel {
+    color: $color-white;
+    background-color: rgb(121 184 167);
+    text-transform: uppercase;
+    font-size: 4rem;
+}
+
+.videos-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: rgb(121 184 167);
+    padding-bottom: 3rem;
+}

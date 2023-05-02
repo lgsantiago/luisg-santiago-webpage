@@ -1,0 +1,40 @@
+.section-links {
+    margin-top: 10rem;
+    padding-top: 3rem;
+}
+.main-icon {
+    position: relative;
+    margin: 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-icon:hover .other-icons {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(-100%);
+}
+
+.other-icons {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(50%);
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.other-icons a {
+    display: block;
+    margin: 0 2rem;
+}
+
+.other-icons img {
+    width: 8rem;
+    height: 8rem;
+}

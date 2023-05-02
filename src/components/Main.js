@@ -34,6 +34,9 @@ const Main = () => (
         you take your business to the next level, look no further. Let's work
         together to build something great!
       </p>
+      <p>
+        <b>Email: </b> luis.santiagoayala@gmail.com
+      </p>
     </section>
     <div class="image"></div>
   </main>
