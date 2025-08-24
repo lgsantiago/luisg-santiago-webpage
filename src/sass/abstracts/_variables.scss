@@ -1,7 +1,126 @@
-$color-primary: rgba(126, 213, 111, 1);
-$color-primary-sub: rgba(83, 113, 255, 0.8);
-$color-channel-background: rgb(159 173 246 / 80%);
-$color-black: #3a3a3a;
-$color-gray: #777;
-$color--light-gray: #dfdfdf;
-$color-white: #fff;
+// Modern Color Palette
+// Primary Colors - Professional Blue Gradient
+$color-primary: #2563eb; // Modern blue
+$color-primary-light: #3b82f6;
+$color-primary-dark: #1d4ed8;
+$color-primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+// Accent Colors
+$color-accent: #06b6d4; // Cyan accent
+$color-accent-light: #0891b2;
+$color-success: #10b981; // Modern green
+$color-warning: #f59e0b;
+$color-error: #ef4444;
+
+// Neutral Colors - Modern Gray Scale
+$color-white: #ffffff;
+$color-gray-50: #f9fafb;
+$color-gray-100: #f3f4f6;
+$color-gray-200: #e5e7eb;
+$color-gray-300: #d1d5db;
+$color-gray-400: #9ca3af;
+$color-gray-500: #6b7280;
+$color-gray-600: #4b5563;
+$color-gray-700: #374151;
+$color-gray-800: #1f2937;
+$color-gray-900: #111827;
+$color-black: #000000;
+
+// Legacy color mappings for backward compatibility
+$color-primary-sub: $color-primary-light;
+$color-channel-background: rgba($color-primary, 0.1);
+$color-gray: $color-gray-500;
+$color--light-gray: $color-gray-200;
+
+// Dark Mode Colors
+$color-dark-bg: $color-gray-900;
+$color-dark-surface: $color-gray-800;
+$color-dark-text: $color-gray-100;
+$color-dark-text-muted: $color-gray-400;
+
+// Typography Scale
+$font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+$font-family-heading: 'Inter', sans-serif;
+$font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+// Font Weights
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+
+// Font Sizes (fluid typography)
+$font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+$font-size-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+$font-size-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+$font-size-lg: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+$font-size-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+$font-size-2xl: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+$font-size-3xl: clamp(1.875rem, 1.6rem + 1.375vw, 2.5rem);
+$font-size-4xl: clamp(2.25rem, 1.9rem + 1.75vw, 3rem);
+$font-size-5xl: clamp(3rem, 2.5rem + 2.5vw, 4rem);
+
+// Line Heights
+$line-height-none: 1;
+$line-height-tight: 1.25;
+$line-height-snug: 1.375;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.625;
+$line-height-loose: 2;
+
+// Spacing Scale (using rem for consistency)
+$space-1: 0.25rem;   // 4px
+$space-2: 0.5rem;    // 8px
+$space-3: 0.75rem;   // 12px
+$space-4: 1rem;      // 16px
+$space-5: 1.25rem;   // 20px
+$space-6: 1.5rem;    // 24px
+$space-8: 2rem;      // 32px
+$space-10: 2.5rem;   // 40px
+$space-12: 3rem;     // 48px
+$space-16: 4rem;     // 64px
+$space-20: 5rem;     // 80px
+$space-24: 6rem;     // 96px
+$space-32: 8rem;     // 128px
+
+// Border Radius
+$border-radius-none: 0;
+$border-radius-sm: 0.125rem;
+$border-radius-base: 0.25rem;
+$border-radius-md: 0.375rem;
+$border-radius-lg: 0.5rem;
+$border-radius-xl: 0.75rem;
+$border-radius-2xl: 1rem;
+$border-radius-3xl: 1.5rem;
+$border-radius-full: 9999px;
+
+// Shadows
+$shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+$shadow-base: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+$shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+$shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+$shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+$shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
+// Transitions
+$transition-fast: 150ms ease-in-out;
+$transition-base: 300ms ease-in-out;
+$transition-slow: 500ms ease-in-out;
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+// Z-index scale
+$z-dropdown: 1000;
+$z-sticky: 1020;
+$z-fixed: 1030;
+$z-modal-backdrop: 1040;
+$z-modal: 1050;
+$z-popover: 1060;
+$z-tooltip: 1070;

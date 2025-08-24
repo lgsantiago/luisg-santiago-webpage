@@ -1,29 +1,64 @@
 import React from "react";
 import logo from "../img/logo.png";
+import profileImg from "../img/profile.jpg";
+import ThemeToggle from "./ThemeToggle";
 
 const Header: React.FC = () => (
-  <div>
-    <header className="header">
-      <div className="logo-box">
-        <img src={logo} alt="LG Santiago Logo" className="logo" />
+  <>
+    {/* Modern Navigation */}
+    <nav className="navigation">
+      <div className="navigation-content">
+        <div className="logo-box">
+          <img src={logo} alt="LG Santiago Logo" className="logo" />
+          <span className="logo-text">LG Santiago</span>
+        </div>
+        <ThemeToggle />
       </div>
+    </nav>
 
-      <div className="header-text-box">
-        <h1 className="heading-primary">
-          <span className="heading-primary-main">LG Santiago</span>
-          <span className="heading-primary-sub">
-            Software Engineer | Developer Advocate
-          </span>
-        </h1>
-        <a
-          href="https://www.youtube.com/@lgsantiago"
-          className="btn btn-white btn-animated"
-        >
-          watch my videos
-        </a>
+    {/* Modern Hero Section */}
+    <header className="header">
+      <div className="header-content">
+        <div className="header-text">
+          <div className="subtitle">Software Engineer & Developer Advocate</div>
+          <h1 className="title">
+            Building the Future
+            <br />
+            One Line at a Time
+          </h1>
+          <p className="description">
+            I'm a passionate software engineer based in Miami, specializing in creating 
+            powerful web applications that help businesses connect with their customers. 
+            Let's build something amazing together.
+          </p>
+          <div className="cta-buttons">
+            <a
+              href="https://www.youtube.com/@lgsantiago"
+              className="btn-modern btn-primary"
+            >
+              Watch My Videos
+            </a>
+            <a
+              href="#about"
+              className="btn-modern btn-secondary"
+            >
+              Learn More About Me
+            </a>
+          </div>
+        </div>
+        
+        <div className="header-profile">
+          <div className="profile-container">
+            <img 
+              src={profileImg} 
+              alt="Luis G Santiago Profile" 
+              className="profile-image" 
+            />
+          </div>
+        </div>
       </div>
     </header>
-  </div>
+  </>
 );
 
 export default Header;

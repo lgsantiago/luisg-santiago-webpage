@@ -1,0 +1,167 @@
+// Dark Theme Styles
+:global(.dark) {
+  // Typography in dark mode
+  body {
+    background-color: $color-dark-bg;
+    color: $color-dark-text;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: $color-dark-text;
+  }
+  
+  p {
+    color: $color-dark-text-muted;
+  }
+  
+  // Header styles
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    
+    .subtitle {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .description {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+  
+  // Navigation styles
+  .navigation {
+    background: rgba(31, 41, 55, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    
+    &.scrolled {
+      background: rgba(31, 41, 55, 0.95);
+    }
+    
+    .logo-text {
+      color: $color-dark-text;
+    }
+  }
+  
+  // About section styles
+  .about-section {
+    background: linear-gradient(135deg, $color-dark-bg 0%, $color-dark-surface 100%);
+    
+    &::before {
+      background: linear-gradient(90deg, transparent, $color-primary, transparent);
+    }
+    
+    .section-subtitle {
+      color: $color-primary-light;
+    }
+    
+    .section-title {
+      color: $color-dark-text;
+    }
+    
+    .section-description {
+      color: $color-dark-text-muted;
+    }
+    
+    .about-paragraph {
+      color: $color-dark-text-muted;
+      
+      &.lead {
+        color: $color-dark-text;
+      }
+    }
+    
+    .skill-item {
+      background: $color-dark-surface;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      
+      &:hover {
+        border-color: $color-primary;
+        background: lighten($color-dark-surface, 3%);
+      }
+      
+      .skill-name {
+        color: $color-dark-text;
+      }
+    }
+    
+    .contact-info {
+      background: $color-dark-surface;
+      border-color: rgba(255, 255, 255, 0.1);
+      
+      &:hover {
+        border-color: $color-primary;
+        background: lighten($color-dark-surface, 3%);
+      }
+      
+      .contact-text {
+        color: $color-dark-text;
+      }
+    }
+    
+    .stat-card {
+      background: $color-dark-surface;
+      border-color: rgba(255, 255, 255, 0.1);
+      
+      &:hover {
+        border-color: $color-primary;
+        background: lighten($color-dark-surface, 3%);
+      }
+      
+      .stat-label {
+        color: $color-dark-text-muted;
+      }
+    }
+  }
+  
+  // Videos section
+  .section-videos {
+    background: $color-dark-bg;
+    
+    .heading-channel {
+      color: $color-dark-text;
+    }
+  }
+  
+  // Links section
+  .section-links {
+    background: $color-dark-surface;
+    
+    h2 {
+      color: $color-dark-text;
+    }
+  }
+  
+  // Button styles
+  .btn-contact {
+    &:hover {
+      background: $color-primary-light;
+    }
+  }
+  
+  .btn-modern {
+    &.btn-secondary {
+      background: $color-dark-surface;
+      color: $color-dark-text;
+      border-color: rgba(255, 255, 255, 0.2);
+      
+      &:hover {
+        background: lighten($color-dark-surface, 5%);
+        border-color: $color-primary;
+      }
+    }
+  }
+  
+  // Form elements and interactive components
+  code {
+    background-color: $color-dark-surface;
+    color: $color-dark-text;
+  }
+  
+  // Link styles
+  a {
+    color: $color-primary-light;
+    
+    &:hover {
+      color: lighten($color-primary-light, 10%);
+    }
+  }
+}

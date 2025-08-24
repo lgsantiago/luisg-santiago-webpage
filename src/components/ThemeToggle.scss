@@ -1,0 +1,80 @@
+@import "../sass/abstracts/variables";
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: $space-2;
+  border-radius: $border-radius-full;
+  transition: all $transition-fast;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  &:hover {
+    background: rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+  }
+  
+  &:focus {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+  
+  .toggle-track {
+    width: 60px;
+    height: 30px;
+    background: $color-gray-300;
+    border-radius: $border-radius-full;
+    position: relative;
+    transition: all $transition-base;
+    
+    .toggle-thumb {
+      width: 26px;
+      height: 26px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      transition: all $transition-base;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: $shadow-sm;
+      
+      .toggle-icon {
+        font-size: 14px;
+        line-height: 1;
+      }
+    }
+  }
+}
+
+// Dark mode styles
+:global(.dark) .theme-toggle {
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .toggle-track {
+    background: $color-primary;
+    
+    .toggle-thumb {
+      transform: translateX(30px);
+      background: $color-gray-800;
+    }
+  }
+}
+
+// Light mode specific styles
+:global(.light) .theme-toggle {
+  .toggle-track {
+    background: $color-gray-200;
+    
+    .toggle-thumb {
+      transform: translateX(0);
+      background: white;
+    }
+  }
+}

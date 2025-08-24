@@ -1,67 +1,247 @@
 @import "../sass/abstracts/variables";
 
-.main-container {
-    display: grid;
-    grid-template-columns: 70% 30%;
-    padding: 0rem 10rem;
-    @media screen and (max-width: 768px) {
-        grid-template-columns: 1fr;
-        padding: 2rem;
+// About Section
+.about-section {
+    padding: $space-32 0;
+    background: linear-gradient(135deg, $color-gray-50 0%, $color-white 100%);
+    position: relative;
+    
+    // Decorative elements
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, $color-primary, transparent);
     }
-    @media screen and (max-width: 820px) {
-        grid-template-columns: 1fr;
-        padding: 2rem;
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 $space-6;
+    }
+    
+    .section-header {
+        text-align: center;
+        margin-bottom: $space-20;
+        
+        .section-subtitle {
+            font-size: $font-size-sm;
+            font-weight: $font-weight-semibold;
+            color: $color-primary;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: $space-3;
+        }
+        
+        .section-title {
+            font-size: $font-size-4xl;
+            font-weight: $font-weight-bold;
+            color: $color-gray-900;
+            margin-bottom: $space-6;
+            
+            @media (max-width: $breakpoint-md) {
+                font-size: $font-size-3xl;
+            }
+        }
+        
+        .section-description {
+            font-size: $font-size-xl;
+            color: $color-gray-600;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: $line-height-relaxed;
+        }
+    }
+    
+    .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $space-16;
+        align-items: center;
+        margin-top: $space-16;
+        
+        @media (max-width: $breakpoint-lg) {
+            grid-template-columns: 1fr;
+            gap: $space-12;
+        }
+    }
+    
+    .about-text {
+        .about-paragraph {
+            font-size: $font-size-lg;
+            line-height: $line-height-relaxed;
+            color: $color-gray-600;
+            margin-bottom: $space-6;
+            
+            &.lead {
+                font-size: $font-size-xl;
+                color: $color-gray-700;
+                font-weight: $font-weight-medium;
+            }
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: $space-4;
+            margin: $space-8 0;
+            
+            @media (max-width: $breakpoint-sm) {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: $space-3;
+            padding: $space-3;
+            background: white;
+            border-radius: $border-radius-lg;
+            box-shadow: $shadow-sm;
+            transition: all $transition-fast;
+            
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: $shadow-md;
+            }
+            
+            .skill-icon {
+                width: 24px;
+                height: 24px;
+                color: $color-primary;
+            }
+            
+            .skill-name {
+                font-weight: $font-weight-medium;
+                color: $color-gray-700;
+            }
+        }
+        
+        .cta-container {
+            margin-top: $space-8;
+            display: flex;
+            gap: $space-4;
+            align-items: center;
+            
+            @media (max-width: $breakpoint-sm) {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: $space-3;
+            padding: $space-4;
+            background: white;
+            border-radius: $border-radius-xl;
+            box-shadow: $shadow-sm;
+            border: 2px solid $color-gray-100;
+            transition: all $transition-fast;
+            
+            &:hover {
+                border-color: $color-primary;
+                box-shadow: $shadow-md;
+            }
+            
+            .contact-icon {
+                width: 20px;
+                height: 20px;
+                color: $color-primary;
+            }
+            
+            .contact-text {
+                color: $color-gray-700;
+                font-weight: $font-weight-medium;
+            }
+        }
+    }
+    
+    .about-visual {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: $space-6;
+            max-width: 400px;
+            
+            @media (max-width: $breakpoint-lg) {
+                max-width: 500px;
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            @media (max-width: $breakpoint-sm) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .stat-card {
+            background: white;
+            padding: $space-6;
+            border-radius: $border-radius-2xl;
+            box-shadow: $shadow-lg;
+            text-align: center;
+            border: 1px solid $color-gray-100;
+            transition: all $transition-base;
+            
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: $shadow-xl;
+                border-color: $color-primary;
+            }
+            
+            .stat-number {
+                font-size: $font-size-3xl;
+                font-weight: $font-weight-extrabold;
+                color: $color-primary;
+                margin-bottom: $space-2;
+                line-height: 1;
+            }
+            
+            .stat-label {
+                font-size: $font-size-sm;
+                color: $color-gray-600;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                font-weight: $font-weight-medium;
+            }
+        }
     }
 }
 
-.section-aboutme {
-    background-color: $color-white;
-    margin-top: 10rem;
-    margin-left: 15rem;
-    margin-right: 3rem;
-    @media screen and (max-width: 768px) {
-        margin: 0;
+// Contact CTA Button
+.btn-contact {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    padding: $space-4 $space-8;
+    background: $color-primary;
+    color: white;
+    text-decoration: none;
+    border-radius: $border-radius-full;
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-base;
+    transition: all $transition-fast;
+    box-shadow: $shadow-md;
+    
+    &:hover {
+        background: $color-primary-dark;
+        transform: translateY(-2px);
+        box-shadow: $shadow-lg;
+        color: white;
+        text-decoration: none;
     }
-}
-
-.heading-secondary {
-    color: $color-gray;
-    background-color: $color-white;
-    text-transform: uppercase;
-    font-size: 4rem;
-}
-
-.image {
-    background-image: url("../img/profile.jpg");
-    background-size: cover;
-    background-position: center;
-    height: 60%;
-    border-radius: 50%;
-    padding: 25rem 10rem;
-    @media screen and (max-width: 768px) {
-        border-radius: 0%;
-        height: 60%;
-        width: 100%;
-        padding: 33rem 10rem;
+    
+    .btn-icon {
+        width: 18px;
+        height: 18px;
     }
-    @media screen and (max-width: 820px) {
-        border-radius: 0%;
-        height: 60%;
-        width: 100%;
-        padding: 33rem 10rem;
-    }
-    @media screen and (min-width: 821px) and (max-width: 1000px) {
-        display: none;
-    }
-    @media screen and (min-width: 1001px) and (max-width: 1575px) {
-        border-radius: 0%;
-        height: 60%;
-        width: 100%;
-        padding: 33rem 10rem;
-    }
-}
-
-p {
-    font-size: 2rem;
-    margin-bottom: 3rem;
 }
