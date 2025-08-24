@@ -1,16 +1,17 @@
+import React from "react";
 import "./Links.scss";
 import youtube from "../img/youtube.svg";
 import medium from "../img/medium.svg";
 import linkedin from "../img/linkedin.svg";
 import connect from "../img/connect.svg";
 
-const Links = () => (
+const Links: React.FC = () => (
   <section className="section-links">
-    <div class="main-icon">
+    <div className="main-icon">
       <h2>See my links</h2>
-      <img src={connect} width="100rem" height="100rem" alt="Main Icon" />
+      <img src={connect} width="100" height="100" alt="Main Icon" />
 
-      <div class="other-icons">
+      <div className="other-icons">
         <a href="https://medium.com/@luisg_santiago">
           <img src={medium} alt="Medium" />
         </a>

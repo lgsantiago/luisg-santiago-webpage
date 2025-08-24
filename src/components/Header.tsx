@@ -1,10 +1,11 @@
+import React from "react";
 import logo from "../img/logo.png";
 
-const Header = () => (
+const Header: React.FC = () => (
   <div>
     <header className="header">
       <div className="logo-box">
-        <img src={logo} alt="LG Santiago Logo" className="logo"></img>
+        <img src={logo} alt="LG Santiago Logo" className="logo" />
       </div>
 
       <div className="header-text-box">

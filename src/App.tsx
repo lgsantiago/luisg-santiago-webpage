@@ -4,7 +4,7 @@ import Main from "./components/Main";
 import Videos from "./components/Videos";
 import Links from "./components/Links";
 
-function App() {
+const App: React.FC = () => {
   return (
     <>
       <Header />
@@ -13,6 +13,6 @@ function App() {
       <Links />
     </>
   );
-}
+};
 
 export default App;

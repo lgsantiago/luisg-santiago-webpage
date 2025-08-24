@@ -1,6 +1,7 @@
+import React from "react";
 import "./Main.scss";
 
-const Main = () => (
+const Main: React.FC = () => (
   <main className="main-container">
     <section className="section-aboutme">
       <h2 className="heading-secondary">About Me</h2>
@@ -38,7 +39,7 @@ const Main = () => (
         <b>Email: </b> luis.santiagoayala@gmail.com
       </p>
     </section>
-    <div class="image"></div>
+    <div className="image"></div>
   </main>
 );
 
