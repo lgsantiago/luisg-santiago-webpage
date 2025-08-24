@@ -39,10 +39,10 @@ const Header: React.FC = () => (
               Watch My Videos
             </a>
             <a
-              href="#about"
+              href="#projects"
               className="btn-modern btn-secondary"
             >
-              Learn More About Me
+              View My Projects
             </a>
           </div>
         </div>
