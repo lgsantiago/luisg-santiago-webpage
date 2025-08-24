@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Projects.scss";
+import { SkeletonLoader } from './Loading';
 
 interface Project {
   id: string;
@@ -17,6 +18,8 @@ interface Project {
 const Projects: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isCategoryLoading, setIsCategoryLoading] = useState(false);
 
   // Sample projects data - you can replace with real projects
   const projects: Project[] = [
@@ -106,6 +109,27 @@ const Projects: React.FC = () => {
 
   const featuredProjects = projects.filter(project => project.featured);
 
+  // Simulate initial loading
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1800);
+    
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Handle category change with loading
+  const handleCategoryChange = (categoryId: string) => {
+    if (categoryId === activeCategory) return;
+    
+    setIsCategoryLoading(true);
+    setActiveCategory(categoryId);
+    
+    setTimeout(() => {
+      setIsCategoryLoading(false);
+    }, 600);
+  };
+
   return (
     <section id="projects" className="projects-section">
       <div className="container">
@@ -118,103 +142,119 @@ const Projects: React.FC = () => {
           </p>
         </div>
 
-        {/* Featured Projects Grid */}
         <div className="featured-projects">
           <h3 className="featured-title">Featured Work</h3>
           <div className="projects-grid featured-grid">
-            {featuredProjects.map((project) => (
-              <div key={project.id} className="project-card featured-card">
-                <div className="project-image">
-                  <img src={project.image} alt={project.title} />
-                  <div className="project-overlay">
-                    <div className="project-links">
-                      {project.demoLink && (
-                        <a href={project.demoLink} className="project-link demo" target="_blank" rel="noopener noreferrer">
-                          <span>🔗</span> Live Demo
-                        </a>
-                      )}
-                      {project.githubLink && (
-                        <a href={project.githubLink} className="project-link github" target="_blank" rel="noopener noreferrer">
-                          <span>📁</span> Source Code
-                        </a>
-                      )}
+            {isLoading ? (
+              [...Array(3)].map((_, i) => (
+                <SkeletonLoader key={i} variant="project-card" />
+              ))
+            ) : (
+              featuredProjects.map((project) => (
+                <div 
+                  key={project.id} 
+                  className="project-card featured-card"
+                >
+                  <div className="project-image">
+                    <img src={project.image} alt={project.title} />
+                    <div className="project-overlay">
+                      <div className="project-links">
+                        {project.demoLink && (
+                          <a href={project.demoLink} className="project-link demo" target="_blank" rel="noopener noreferrer">
+                            <span>🔗</span> Live Demo
+                          </a>
+                        )}
+                        {project.githubLink && (
+                          <a href={project.githubLink} className="project-link github" target="_blank" rel="noopener noreferrer">
+                            <span>📁</span> Source Code
+                          </a>
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="project-content">
-                  <div className="project-category">{categories.find(c => c.id === project.category)?.name}</div>
-                  <h4 className="project-title">{project.title}</h4>
-                  <p className="project-description">{project.description}</p>
-                  <div className="project-tech">
-                    {project.technologies.slice(0, 4).map((tech) => (
-                      <span key={tech} className="tech-tag">{tech}</span>
-                    ))}
-                    {project.technologies.length > 4 && (
-                      <span className="tech-tag more">+{project.technologies.length - 4}</span>
-                    )}
+                  <div className="project-content">
+                    <div className="project-category">{categories.find(c => c.id === project.category)?.name}</div>
+                    <h4 className="project-title">{project.title}</h4>
+                    <p className="project-description">{project.description}</p>
+                    <div className="project-tech">
+                      {project.technologies.slice(0, 4).map((tech) => (
+                        <span key={tech} className="tech-tag">{tech}</span>
+                      ))}
+                      {project.technologies.length > 4 && (
+                        <span className="tech-tag more">+{project.technologies.length - 4}</span>
+                      )}
+                    </div>
+                    <button 
+                      className="project-details-btn"
+                      onClick={() => setSelectedProject(project)}
+                    >
+                      View Details
+                    </button>
                   </div>
-                  <button 
-                    className="project-details-btn"
-                    onClick={() => setSelectedProject(project)}
-                  >
-                    View Details
-                  </button>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </div>
 
-        {/* Category Filters */}
         <div className="category-filters">
           {categories.map((category) => (
             <button
               key={category.id}
               className={`category-btn ${activeCategory === category.id ? 'active' : ''}`}
-              onClick={() => setActiveCategory(category.id)}
+              onClick={() => handleCategoryChange(category.id)}
+              disabled={isCategoryLoading}
             >
               {category.name}
             </button>
           ))}
         </div>
 
-        {/* All Projects Grid */}
         <div className="all-projects">
           <div className="projects-grid">
-            {filteredProjects.map((project) => (
-              <div key={project.id} className="project-card">
-                <div className="project-image">
-                  <img src={project.image} alt={project.title} />
-                  <div className="project-overlay">
-                    <div className="project-links">
-                      {project.demoLink && (
-                        <a href={project.demoLink} className="project-link demo" target="_blank" rel="noopener noreferrer">
-                          <span>🔗</span> Demo
-                        </a>
-                      )}
-                      {project.githubLink && (
-                        <a href={project.githubLink} className="project-link github" target="_blank" rel="noopener noreferrer">
-                          <span>📁</span> Code
-                        </a>
+            {isCategoryLoading ? (
+              [...Array(6)].map((_, i) => (
+                <SkeletonLoader key={i} variant="project-card" />
+              ))
+            ) : (
+              filteredProjects.map((project) => (
+                <div 
+                  key={project.id} 
+                  className="project-card"
+                >
+                  <div className="project-image">
+                    <img src={project.image} alt={project.title} />
+                    <div className="project-overlay">
+                      <div className="project-links">
+                        {project.demoLink && (
+                          <a href={project.demoLink} className="project-link demo" target="_blank" rel="noopener noreferrer">
+                            <span>🔗</span> Demo
+                          </a>
+                        )}
+                        {project.githubLink && (
+                          <a href={project.githubLink} className="project-link github" target="_blank" rel="noopener noreferrer">
+                            <span>📁</span> Code
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="project-content">
+                    <div className="project-category">{categories.find(c => c.id === project.category)?.name}</div>
+                    <h4 className="project-title">{project.title}</h4>
+                    <p className="project-description">{project.description}</p>
+                    <div className="project-tech">
+                      {project.technologies.slice(0, 3).map((tech) => (
+                        <span key={tech} className="tech-tag">{tech}</span>
+                      ))}
+                      {project.technologies.length > 3 && (
+                        <span className="tech-tag more">+{project.technologies.length - 3}</span>
                       )}
                     </div>
                   </div>
                 </div>
-                <div className="project-content">
-                  <div className="project-category">{categories.find(c => c.id === project.category)?.name}</div>
-                  <h4 className="project-title">{project.title}</h4>
-                  <p className="project-description">{project.description}</p>
-                  <div className="project-tech">
-                    {project.technologies.slice(0, 3).map((tech) => (
-                      <span key={tech} className="tech-tag">{tech}</span>
-                    ))}
-                    {project.technologies.length > 3 && (
-                      <span className="tech-tag more">+{project.technologies.length - 3}</span>
-                    )}
-                  </div>
-                </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </div>
       </div>

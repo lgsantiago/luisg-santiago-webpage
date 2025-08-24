@@ -1,19 +1,20 @@
 import React from "react";
 import "./Main.scss";
+import AnimatedSection from "./AnimatedSection";
 
 const Main: React.FC = () => (
   <main id="about" className="about-section">
     <div className="container">
-      <div className="section-header">
+      <AnimatedSection animation="fade-in-down" className="section-header">
         <div className="section-subtitle">Get to Know Me</div>
         <h2 className="section-title">About Luis Santiago</h2>
         <p className="section-description">
           Passionate about creating digital experiences that make a difference
         </p>
-      </div>
+      </AnimatedSection>
 
       <div className="about-content">
-        <div className="about-text">
+        <AnimatedSection animation="fade-in-left" delay={200} className="about-text">
           <p className="about-paragraph lead">
             Hey there! I'm a software engineer based in sunny Miami, passionate
             about building innovative web applications that help businesses
@@ -28,7 +29,7 @@ const Main: React.FC = () => (
             exceptionally.
           </p>
 
-          <div className="skills-grid">
+          <AnimatedSection animation="fade-in-up" delay={400} className="skills-grid" stagger>
             <div className="skill-item">
               <div className="skill-icon">⚛️</div>
               <span className="skill-name">React & TypeScript</span>
@@ -45,7 +46,7 @@ const Main: React.FC = () => (
               <div className="skill-icon">☁️</div>
               <span className="skill-name">Cloud Platforms</span>
             </div>
-          </div>
+          </AnimatedSection>
 
           <p className="about-paragraph">
             When I'm not coding, you'll find me creating educational content on
@@ -54,7 +55,7 @@ const Main: React.FC = () => (
             developer community.
           </p>
 
-          <div className="cta-container">
+          <AnimatedSection animation="fade-in-up" delay={600} className="cta-container">
             <a
               href="mailto:luis.santiagoayala@gmail.com"
               className="btn-contact"
@@ -66,11 +67,11 @@ const Main: React.FC = () => (
               <span className="contact-icon">📧</span>
               <span className="contact-text">luis.santiagoayala@gmail.com</span>
             </div>
-          </div>
-        </div>
+          </AnimatedSection>
+        </AnimatedSection>
 
-        <div className="about-visual">
-          <div className="stats-container">
+        <AnimatedSection animation="fade-in-right" delay={300} className="about-visual">
+          <AnimatedSection animation="scale-in" delay={800} className="stats-container" stagger>
             <div className="stat-card">
               <div className="stat-number">12+</div>
               <div className="stat-label">Years Experience</div>
@@ -87,8 +88,8 @@ const Main: React.FC = () => (
               <div className="stat-number">Miami</div>
               <div className="stat-label">Based</div>
             </div>
-          </div>
-        </div>
+          </AnimatedSection>
+        </AnimatedSection>
       </div>
     </div>
   </main>

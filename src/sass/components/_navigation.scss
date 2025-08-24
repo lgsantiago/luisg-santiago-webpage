@@ -1,0 +1,139 @@
+@import "../abstracts/variables";
+
+// Modern Navigation Styles
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all $transition-fast;
+  
+  .navigation-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $space-6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: $space-3;
+      
+      .logo {
+        width: 40px;
+        height: 40px;
+        border-radius: $border-radius-full;
+      }
+      
+      .logo-text {
+        font-size: $font-size-xl;
+        font-weight: $font-weight-bold;
+        color: $color-gray-900;
+        text-decoration: none;
+      }
+    }
+    
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: $space-8;
+      
+      @media (max-width: $breakpoint-md) {
+        display: none; // Hide on mobile - you could add a mobile menu later
+      }
+      
+      .nav-link {
+        font-size: $font-size-base;
+        font-weight: $font-weight-medium;
+        color: $color-gray-700;
+        text-decoration: none;
+        padding: $space-2 $space-3;
+        border-radius: $border-radius-lg;
+        transition: all $transition-fast;
+        position: relative;
+        
+        &:hover {
+          color: $color-primary;
+          background: rgba($color-primary, 0.1);
+          transform: translateY(-1px);
+        }
+        
+        &.active {
+          color: $color-primary;
+          font-weight: $font-weight-semibold;
+          
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: $color-primary;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Dark mode styles
+:global(.dark) {
+  .navigation {
+    background: rgba($color-dark-surface, 0.95);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+    
+    .navigation-content {
+      .logo-text {
+        color: $color-dark-text;
+      }
+      
+      .nav-menu {
+        .nav-link {
+          color: $color-dark-text-muted;
+          
+          &:hover {
+            color: $color-primary;
+            background: rgba($color-primary, 0.1);
+          }
+          
+          &.active {
+            color: $color-primary;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Pulse animation for active nav indicator
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateX(-50%) scale(1.2);
+  }
+}
+
+// Smooth scroll behavior
+html {
+  scroll-behavior: smooth;
+}
+
+// Offset for fixed navigation
+section {
+  scroll-margin-top: 80px;
+}

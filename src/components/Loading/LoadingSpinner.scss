@@ -1,0 +1,75 @@
+@import "../../sass/abstracts/variables";
+
+.loading-spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  .spinner {
+    border-radius: 50%;
+    border: 3px solid transparent;
+    animation: spin 1s linear infinite;
+  }
+  
+  // Sizes
+  &.sm .spinner {
+    width: 20px;
+    height: 20px;
+    border-width: 2px;
+  }
+  
+  &.md .spinner {
+    width: 32px;
+    height: 32px;
+    border-width: 3px;
+  }
+  
+  &.lg .spinner {
+    width: 48px;
+    height: 48px;
+    border-width: 4px;
+  }
+  
+  // Colors
+  &.primary .spinner {
+    border-top-color: $color-primary;
+    border-right-color: $color-primary;
+    border-bottom-color: rgba($color-primary, 0.2);
+    border-left-color: rgba($color-primary, 0.2);
+  }
+  
+  &.white .spinner {
+    border-top-color: white;
+    border-right-color: white;
+    border-bottom-color: rgba(white, 0.2);
+    border-left-color: rgba(white, 0.2);
+  }
+  
+  &.gray .spinner {
+    border-top-color: $color-gray-600;
+    border-right-color: $color-gray-600;
+    border-bottom-color: rgba($color-gray-600, 0.2);
+    border-left-color: rgba($color-gray-600, 0.2);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// Dark mode
+:global(.dark) {
+  .loading-spinner {
+    &.gray .spinner {
+      border-top-color: $color-dark-text;
+      border-right-color: $color-dark-text;
+      border-bottom-color: rgba($color-dark-text, 0.2);
+      border-left-color: rgba($color-dark-text, 0.2);
+    }
+  }
+}

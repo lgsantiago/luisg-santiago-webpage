@@ -2,7 +2,7 @@ import React from "react";
 import "./Videos.scss";
 
 const Videos: React.FC = () => (
-  <section className="section-videos">
+  <section id="videos" className="section-videos">
     <div className="container">
       <div className="section-header">
         <div className="section-subtitle">Featured Content</div>

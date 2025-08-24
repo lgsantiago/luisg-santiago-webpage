@@ -1,0 +1,345 @@
+@import "../../sass/abstracts/variables";
+
+// Magnetic hover effect
+.hover-magnetic {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  
+  &:hover {
+    transform: translateY(-2px) scale(1.02);
+  }
+  
+  &:active {
+    transform: translateY(0) scale(0.98);
+  }
+}
+
+// Glow effect on hover
+.hover-glow {
+  position: relative;
+  transition: all $transition-base;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba($color-primary, 0.15) 0%, transparent 70%);
+    border-radius: inherit;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all $transition-base;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  &:hover::before {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+// Shimmer effect
+.hover-shimmer {
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.5s ease;
+    pointer-events: none;
+  }
+  
+  &:hover::before {
+    left: 100%;
+  }
+}
+
+// Tilt effect
+.hover-tilt {
+  transform-style: preserve-3d;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg) translateZ(10px);
+  }
+}
+
+// Scale pulse effect
+.hover-pulse {
+  transition: all $transition-base;
+  
+  &:hover {
+    animation: pulse 1s infinite;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+// Bounce effect
+.hover-bounce {
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  &:hover {
+    animation: bounce 0.6s ease-in-out;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+// Float effect
+.hover-float {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &:hover {
+    transform: translateY(-8px);
+    animation: float 2s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(-8px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+// Rotate effect
+.hover-rotate {
+  transition: transform $transition-base;
+  
+  &:hover {
+    transform: rotate(5deg) scale(1.05);
+  }
+}
+
+// Flip effect
+.hover-flip {
+  transition: transform $transition-base;
+  transform-style: preserve-3d;
+  
+  &:hover {
+    transform: rotateY(180deg);
+  }
+}
+
+// Shadow expand effect
+.hover-shadow-expand {
+  transition: all $transition-base;
+  
+  &:hover {
+    box-shadow: 
+      $shadow-2xl,
+      0 0 30px rgba($color-primary, 0.2);
+    transform: translateY(-2px);
+  }
+}
+
+// Border sweep effect
+.hover-border-sweep {
+  position: relative;
+  border: 2px solid transparent;
+  transition: all $transition-base;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid $color-primary;
+    border-radius: inherit;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    transition: clip-path 0.3s ease;
+  }
+  
+  &:hover::before {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+// Text typing effect
+.hover-typing {
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: $color-primary;
+    animation: typing-cursor 1s infinite;
+    opacity: 0;
+    transition: opacity $transition-base;
+  }
+  
+  &:hover::after {
+    opacity: 1;
+  }
+}
+
+@keyframes typing-cursor {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+// Color shift effect
+.hover-color-shift {
+  transition: all $transition-base;
+  background: linear-gradient(45deg, $color-primary, $color-secondary);
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  
+  &:hover {
+    background-position: 100% 50%;
+  }
+}
+
+// Morphing effect
+.hover-morph {
+  transition: all $transition-smooth;
+  border-radius: $border-radius-lg;
+  
+  &:hover {
+    border-radius: $border-radius-full;
+    transform: scale(1.1);
+  }
+}
+
+// Skew effect
+.hover-skew {
+  transition: transform $transition-base;
+  
+  &:hover {
+    transform: skew(-5deg, 2deg) scale(1.02);
+  }
+}
+
+// Reveal effect
+.hover-reveal {
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba($color-primary, 0.1);
+    transition: top 0.3s ease;
+  }
+  
+  &:hover::before {
+    top: 0;
+  }
+}
+
+// Interactive button effects
+.btn-interactive {
+  position: relative;
+  overflow: hidden;
+  transition: all $transition-base;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+  }
+  
+  &:hover::before {
+    width: 300px;
+    height: 300px;
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+// Dark mode adjustments
+:global(.dark) {
+  .hover-shimmer::before {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+  }
+  
+  .hover-glow::before {
+    background: radial-gradient(circle at center, rgba($color-primary-light, 0.15) 0%, transparent 70%);
+  }
+  
+  .hover-typing::after {
+    background: $color-primary-light;
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .hover-magnetic,
+  .hover-tilt,
+  .hover-bounce,
+  .hover-float,
+  .hover-rotate,
+  .hover-flip,
+  .hover-skew {
+    &:hover {
+      transform: none;
+      animation: none;
+    }
+  }
+  
+  .hover-pulse:hover {
+    animation: none;
+  }
+}

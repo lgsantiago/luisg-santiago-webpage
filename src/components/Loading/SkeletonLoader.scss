@@ -1,0 +1,100 @@
+@import "../../sass/abstracts/variables";
+
+.skeleton {
+  background: linear-gradient(90deg, $color-gray-200 25%, $color-gray-100 50%, $color-gray-200 75%);
+  background-size: 200% 100%;
+  border-radius: $border-radius-md;
+  
+  &.animated {
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+  }
+  
+  &.skeleton-text {
+    height: 1em;
+    margin-bottom: 0.5em;
+    border-radius: $border-radius-sm;
+  }
+  
+  &.skeleton-circular {
+    border-radius: 50%;
+  }
+  
+  &.skeleton-rectangular {
+    border-radius: $border-radius-lg;
+  }
+}
+
+.skeleton-container {
+  .skeleton {
+    margin-bottom: 0.5em;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.skeleton-card {
+  padding: $space-6;
+  background: white;
+  border-radius: $border-radius-2xl;
+  box-shadow: $shadow-sm;
+  border: 1px solid $color-gray-100;
+}
+
+.skeleton-tech-card {
+  padding: $space-6;
+  background: white;
+  border-radius: $border-radius-2xl;
+  box-shadow: $shadow-lg;
+  border: 1px solid $color-gray-100;
+  
+  .skeleton-tech-header {
+    display: flex;
+    align-items: center;
+    gap: $space-4;
+    margin-bottom: $space-4;
+    
+    .skeleton-tech-info {
+      flex: 1;
+    }
+  }
+}
+
+.skeleton-project-card {
+  background: white;
+  border-radius: $border-radius-2xl;
+  padding: $space-6;
+  box-shadow: $shadow-sm;
+  border: 1px solid $color-gray-100;
+  
+  .skeleton-tags {
+    display: flex;
+    gap: $space-2;
+    flex-wrap: wrap;
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+// Dark mode
+:global(.dark) {
+  .skeleton {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.08) 25%, rgba(255, 255, 255, 0.12) 50%, rgba(255, 255, 255, 0.08) 75%);
+    background-size: 200% 100%;
+  }
+  
+  .skeleton-card,
+  .skeleton-tech-card,
+  .skeleton-project-card {
+    background: $color-dark-surface;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+}

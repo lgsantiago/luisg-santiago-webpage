@@ -1,0 +1,181 @@
+@import "../../sass/abstracts/variables";
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.15s ease-out;
+  transform: translate(-50%, -50%);
+  
+  &.visible {
+    opacity: 1;
+  }
+  
+  .cursor-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: $color-primary;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.15s ease-out;
+  }
+  
+  .cursor-ring {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border: 2px solid $color-primary;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.3;
+    transition: all 0.15s ease-out;
+  }
+  
+  &.hovering {
+    .cursor-dot {
+      width: 12px;
+      height: 12px;
+      background: $color-primary;
+      box-shadow: 0 0 20px rgba($color-primary, 0.4);
+    }
+    
+    .cursor-ring {
+      width: 48px;
+      height: 48px;
+      opacity: 0.6;
+      border-width: 3px;
+    }
+  }
+  
+  &.clicking {
+    .cursor-dot {
+      width: 6px;
+      height: 6px;
+      background: $color-primary-dark;
+    }
+    
+    .cursor-ring {
+      width: 24px;
+      height: 24px;
+      border-color: $color-primary-dark;
+      opacity: 0.8;
+    }
+  }
+  
+  &.cursor-pointer {
+    .cursor-dot {
+      background: $color-accent;
+    }
+    
+    .cursor-ring {
+      border-color: $color-accent;
+    }
+  }
+  
+  &.cursor-text {
+    .cursor-dot {
+      width: 2px;
+      height: 16px;
+      border-radius: 2px;
+      background: $color-gray-700;
+    }
+    
+    .cursor-ring {
+      display: none;
+    }
+  }
+  
+  &.cursor-grab {
+    .cursor-dot {
+      background: $color-success;
+    }
+    
+    .cursor-ring {
+      border-color: $color-success;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+  }
+  
+  &.cursor-grabbing {
+    .cursor-dot {
+      background: $color-warning;
+      width: 6px;
+      height: 6px;
+    }
+    
+    .cursor-ring {
+      border-color: $color-warning;
+      width: 24px;
+      height: 24px;
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+  }
+}
+
+.cursor-trail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  background: $color-primary;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+// Hide default cursor when custom cursor is active
+body:has(.custom-cursor.visible) {
+  cursor: none;
+  
+  * {
+    cursor: none !important;
+  }
+}
+
+// Dark mode
+:global(.dark) {
+  .custom-cursor {
+    .cursor-dot {
+      background: $color-primary-light;
+    }
+    
+    .cursor-ring {
+      border-color: $color-primary-light;
+    }
+    
+    &.cursor-text .cursor-dot {
+      background: $color-dark-text;
+    }
+  }
+  
+  .cursor-trail {
+    background: $color-primary-light;
+  }
+}
+
+// Responsive - disable on touch devices
+@media (hover: none) and (pointer: coarse) {
+  .custom-cursor,
+  .cursor-trail {
+    display: none !important;
+  }
+  
+  body {
+    cursor: auto !important;
+    
+    * {
+      cursor: auto !important;
+    }
+  }
+}

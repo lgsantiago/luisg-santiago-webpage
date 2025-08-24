@@ -1,0 +1,266 @@
+// Scroll Animation Keyframes
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-10deg) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Animation Classes
+.animate-fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: none;
+  
+  &.animate-visible {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+}
+
+.animate-fade-in-down {
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: none;
+  
+  &.animate-visible {
+    animation: fadeInDown 0.8s ease-out forwards;
+  }
+}
+
+.animate-fade-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: none;
+  
+  &.animate-visible {
+    animation: fadeInLeft 0.8s ease-out forwards;
+  }
+}
+
+.animate-fade-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: none;
+  
+  &.animate-visible {
+    animation: fadeInRight 0.8s ease-out forwards;
+  }
+}
+
+.animate-fade-in {
+  opacity: 0;
+  transition: none;
+  
+  &.animate-visible {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+}
+
+.animate-scale-in {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: none;
+  
+  &.animate-visible {
+    animation: scaleIn 0.8s ease-out forwards;
+  }
+}
+
+.animate-slide-in-bottom {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: none;
+  
+  &.animate-visible {
+    animation: slideInFromBottom 0.8s ease-out forwards;
+  }
+}
+
+.animate-slide-in-top {
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: none;
+  
+  &.animate-visible {
+    animation: slideInFromTop 0.8s ease-out forwards;
+  }
+}
+
+.animate-rotate-in {
+  opacity: 0;
+  transform: rotate(-10deg) scale(0.8);
+  transition: none;
+  
+  &.animate-visible {
+    animation: rotateIn 0.8s ease-out forwards;
+  }
+}
+
+.animate-bounce-in {
+  opacity: 0;
+  transform: scale(0.3);
+  transition: none;
+  
+  &.animate-visible {
+    animation: bounceIn 0.8s ease-out forwards;
+  }
+}
+
+// Staggered animations
+.animate-stagger {
+  &:nth-child(1) { animation-delay: 0ms; }
+  &:nth-child(2) { animation-delay: 100ms; }
+  &:nth-child(3) { animation-delay: 200ms; }
+  &:nth-child(4) { animation-delay: 300ms; }
+  &:nth-child(5) { animation-delay: 400ms; }
+  &:nth-child(6) { animation-delay: 500ms; }
+  &:nth-child(7) { animation-delay: 600ms; }
+  &:nth-child(8) { animation-delay: 700ms; }
+  &:nth-child(9) { animation-delay: 800ms; }
+  &:nth-child(10) { animation-delay: 900ms; }
+}
+
+// Utility classes for animation timing
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+.animate-delay-500 { animation-delay: 500ms; }
+.animate-delay-600 { animation-delay: 600ms; }
+.animate-delay-700 { animation-delay: 700ms; }
+.animate-delay-800 { animation-delay: 800ms; }
+
+// Duration variations
+.animate-duration-fast { animation-duration: 0.5s; }
+.animate-duration-normal { animation-duration: 0.8s; }
+.animate-duration-slow { animation-duration: 1.2s; }
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up,
+  .animate-fade-in-down,
+  .animate-fade-in-left,
+  .animate-fade-in-right,
+  .animate-fade-in,
+  .animate-scale-in,
+  .animate-slide-in-bottom,
+  .animate-slide-in-top,
+  .animate-rotate-in,
+  .animate-bounce-in {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    
+    &.animate-visible {
+      animation: none;
+    }
+  }
+}

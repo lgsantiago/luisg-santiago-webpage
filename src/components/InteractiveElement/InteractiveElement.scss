@@ -1,0 +1,111 @@
+@import "../../sass/abstracts/variables";
+@import "../HoverEffects/HoverEffects.scss";
+
+.interactive-element {
+  position: relative;
+  display: inline-block;
+  
+  // Ensure proper layering for effects
+  z-index: 1;
+  
+  // Smooth transitions for all interactive elements
+  transition: all $transition-base;
+  
+  // Prevent text selection on interactive elements
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  
+  // Ensure transform origin is center for effects
+  transform-origin: center;
+  
+  // Add slight filter for better visual hierarchy
+  &:hover {
+    filter: brightness(1.05);
+  }
+  
+  // Focus styles for accessibility
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+}
+
+// Special styling for button-like elements
+.interactive-element.btn-interactive {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-3 $space-6;
+  border: none;
+  border-radius: $border-radius-lg;
+  background: $color-primary;
+  color: white;
+  font-weight: $font-weight-semibold;
+  text-decoration: none;
+  cursor: pointer;
+  
+  &:hover {
+    background: $color-primary-dark;
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+// Link styling
+.interactive-element a {
+  color: inherit;
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+// Card-like elements
+.interactive-element.card-interactive {
+  padding: $space-6;
+  background: white;
+  border-radius: $border-radius-xl;
+  box-shadow: $shadow-md;
+  border: 1px solid $color-gray-100;
+  
+  &:hover {
+    box-shadow: $shadow-2xl;
+    border-color: $color-primary;
+  }
+}
+
+// Dark mode adjustments
+:global(.dark) {
+  .interactive-element.btn-interactive {
+    background: $color-primary-light;
+    
+    &:hover {
+      background: $color-primary;
+    }
+  }
+  
+  .interactive-element.card-interactive {
+    background: $color-dark-surface;
+    border-color: rgba(255, 255, 255, 0.1);
+    
+    &:hover {
+      border-color: $color-primary-light;
+    }
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .interactive-element {
+    transition: none;
+    
+    &:hover {
+      filter: none;
+    }
+  }
+}
