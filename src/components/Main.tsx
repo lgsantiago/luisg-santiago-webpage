@@ -14,11 +14,15 @@ const Main: React.FC = () => (
       </AnimatedSection>
 
       <div className="about-content">
-        <AnimatedSection animation="fade-in-left" delay={200} className="about-text">
+        <AnimatedSection
+          animation="fade-in-left"
+          delay={200}
+          className="about-text"
+        >
           <p className="about-paragraph lead">
-            Hey there! I'm a software engineer based in sunny Miami, passionate
-            about building innovative web applications that help businesses
-            thrive in the digital world.
+            Hey there! I'm a software engineer based in Miami, passionate about
+            building innovative web applications that help businesses thrive in
+            the digital world.
           </p>
 
           <p className="about-paragraph">
@@ -29,7 +33,12 @@ const Main: React.FC = () => (
             exceptionally.
           </p>
 
-          <AnimatedSection animation="fade-in-up" delay={400} className="skills-grid" stagger>
+          <AnimatedSection
+            animation="fade-in-up"
+            delay={400}
+            className="skills-grid"
+            stagger
+          >
             <div className="skill-item">
               <div className="skill-icon">⚛️</div>
               <span className="skill-name">React & TypeScript</span>
@@ -55,7 +64,11 @@ const Main: React.FC = () => (
             developer community.
           </p>
 
-          <AnimatedSection animation="fade-in-up" delay={600} className="cta-container">
+          <AnimatedSection
+            animation="fade-in-up"
+            delay={600}
+            className="cta-container"
+          >
             <a
               href="mailto:luis.santiagoayala@gmail.com"
               className="btn-contact"
@@ -70,18 +83,27 @@ const Main: React.FC = () => (
           </AnimatedSection>
         </AnimatedSection>
 
-        <AnimatedSection animation="fade-in-right" delay={300} className="about-visual">
-          <AnimatedSection animation="scale-in" delay={800} className="stats-container" stagger>
+        <AnimatedSection
+          animation="fade-in-right"
+          delay={300}
+          className="about-visual"
+        >
+          <AnimatedSection
+            animation="scale-in"
+            delay={800}
+            className="stats-container"
+            stagger
+          >
             <div className="stat-card">
               <div className="stat-number">12+</div>
               <div className="stat-label">Years Experience</div>
             </div>
             <div className="stat-card">
-              <div className="stat-number">50+</div>
+              <div className="stat-number">20+</div>
               <div className="stat-label">Projects Built</div>
             </div>
             <div className="stat-card">
-              <div className="stat-number">10K+</div>
+              <div className="stat-number">40K+</div>
               <div className="stat-label">YouTube Views</div>
             </div>
             <div className="stat-card">

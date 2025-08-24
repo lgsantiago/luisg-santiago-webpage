@@ -248,6 +248,7 @@
 // Form Groups
 .form-group {
     position: relative;
+    margin-bottom: $space-6;
     
     &.full-width {
         grid-column: 1 / -1;
@@ -257,11 +258,11 @@
 // Form Labels
 .form-label {
     position: absolute;
-    top: 18px;
-    left: 18px;
-    color: $color-gray-500;
-    font-size: $font-size-base;
-    font-weight: $font-weight-medium;
+    top: -8px;
+    left: 14px;
+    color: $color-gray-600;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
     transition: all $transition-fast;
     pointer-events: none;
     z-index: 2;
@@ -269,11 +270,7 @@
     padding: 0 $space-2;
     
     &.focused {
-        top: -8px;
-        left: 14px;
-        font-size: $font-size-sm;
         color: $color-primary;
-        font-weight: $font-weight-semibold;
     }
 }
 
@@ -326,6 +323,9 @@
 // Select Specific Styles
 .form-select {
     cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
     background-position: right 12px center;
     background-repeat: no-repeat;
@@ -572,7 +572,7 @@
         }
         
         .form-label {
-            color: $color-dark-text-muted;
+            color: $color-dark-text;
             background: $color-dark-surface;
             
             &.focused {

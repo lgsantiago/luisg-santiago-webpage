@@ -8,9 +8,9 @@ const Header: React.FC = () => {
   const navigationItems = [
     { id: "home", label: "Home", href: "#home" },
     { id: "about", label: "About", href: "#about" },
-    { id: "tech-stack", label: "Tech Stack", href: "#tech-stack" },
-    { id: "projects", label: "Projects", href: "#projects" },
-    { id: "testimonials", label: "Testimonials", href: "#testimonials" },
+    // { id: "tech-stack", label: "Tech Stack", href: "#tech-stack" },
+    // { id: "projects", label: "Projects", href: "#projects" },
+    // { id: "testimonials", label: "Testimonials", href: "#testimonials" },
     { id: "videos", label: "Videos", href: "#videos" },
     { id: "contact", label: "Contact", href: "#contact" },
   ];
